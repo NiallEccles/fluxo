@@ -18,6 +18,7 @@ export interface Job {
 
 export interface Pipeline {
   format: CiFormat
+  name?: string
   jobs: Job[]
   /** Raw parse errors, if any */
   errors: ParseError[]
