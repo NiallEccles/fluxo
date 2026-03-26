@@ -88,7 +88,7 @@ function ExportControls({ exportRef, containerRef }: ExportControlsProps) {
       const saved = getViewport()
       fitView({ padding: 0.15, duration: 0 })
       // Two rAFs: first lets React apply the new viewport, second lets the browser paint
-      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(r)))
+      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())))
       const el = containerRef.current
       if (!el) return
       const dataUrl = await toPng(el, {
@@ -107,7 +107,7 @@ function ExportControls({ exportRef, containerRef }: ExportControlsProps) {
     async exportSvg() {
       const saved = getViewport()
       fitView({ padding: 0.15, duration: 0 })
-      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(r)))
+      await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())))
       const el = containerRef.current
       if (!el) return
       const dataUrl = await toSvg(el, {
