@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/*",
+    "resourceSizes": [
+      { "resourceType": "script", "budget": 500 },
+      { "resourceType": "total", "budget": 800 }
+    ],
+    "scores": [
+      { "metric": "performance", "minScore": 0.9 },
+      { "metric": "accessibility", "minScore": 0.9 },
+      { "metric": "best-practices", "minScore": 0.9 }
+    ]
+  }
+]
