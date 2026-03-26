@@ -31,6 +31,7 @@ export interface DiagramHandle {
 
 interface DiagramProps {
   jobs: Job[]
+  name?: string
 }
 
 function buildDagreLayout(jobs: Job[], critical: Set<string>): { nodes: Node[]; edges: Edge[] } {
@@ -127,7 +128,7 @@ function ExportControls({ exportRef, containerRef }: ExportControlsProps) {
   return null
 }
 
-export const Diagram = forwardRef<DiagramHandle, DiagramProps>(function Diagram({ jobs }, ref) {
+export const Diagram = forwardRef<DiagramHandle, DiagramProps>(function Diagram({ jobs, name }, ref) {
   const critical = useMemo(() => criticalPath(jobs), [jobs])
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([])
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([])
@@ -141,8 +142,14 @@ export const Diagram = forwardRef<DiagramHandle, DiagramProps>(function Diagram(
 
   return (
     <div ref={containerRef} className="relative h-full w-full bg-gray-950">
-      <div className="absolute top-2 left-2 z-10 text-md font-semibold tracking-tight text-gray-500 pointer-events-none select-none">
-        fluxo
+      <div className="absolute top-2 left-2 z-10 text-md font-semibold tracking-tight text-gray-500 pointer-events-none select-none flex items-center gap-2">
+        <span>fluxo</span>
+        {name && (
+          <>
+            <span className="text-gray-700">/</span>
+            <span>{name}</span>
+          </>
+        )}
       </div>
       <ReactFlow
         nodes={nodes}

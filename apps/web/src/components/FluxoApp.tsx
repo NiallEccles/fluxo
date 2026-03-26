@@ -137,7 +137,7 @@ export default function FluxoApp() {
                   {collapsed ? <PanelLeftOpen className='w-5 text-gray-500' /> : <PanelLeftClose className='w-5 text-gray-500' />}
                 </button>
               </div>
-              <Diagram ref={diagramRef} jobs={pipeline.jobs} />
+              <Diagram ref={diagramRef} jobs={pipeline.jobs} name={pipeline.name} />
             </>
           )}
         </div>
