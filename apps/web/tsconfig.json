@@ -1,0 +1,9 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@fluxo/core": ["../../packages/core/src/index.ts"]
+    }
+  }
+}
