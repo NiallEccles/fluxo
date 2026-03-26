@@ -1,0 +1,19 @@
+---
+import FluxoApp from '../components/FluxoApp'
+---
+<!doctype html>
+<html lang="en" class="dark h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fluxo — CI Pipeline Visualiser</title>
+    <meta name="description" content="Paste a GitHub Actions, CircleCI, or GitLab CI YAML file and get a beautiful interactive pipeline diagram." />
+    <meta property="og:title" content="fluxo — CI Pipeline Visualiser" />
+    <meta property="og:description" content="Instantly visualise CI/CD pipeline dependencies as an interactive graph." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/fluxo/favicon.svg" />
+  </head>
+  <body class="h-full bg-gray-950 text-gray-100">
+    <FluxoApp client:only="react" />
+  </body>
+</html>
