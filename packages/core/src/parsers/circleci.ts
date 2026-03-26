@@ -97,6 +97,7 @@ export const circleciParser: Parser = {
       })
     }
 
-    return { format: FORMAT, jobs, errors }
+    const name = Object.keys(workflows)[0] ?? undefined
+    return { format: FORMAT, name, jobs, errors }
   },
 }

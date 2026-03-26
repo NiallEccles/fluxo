@@ -75,6 +75,7 @@ export const githubActionsParser: Parser = {
       })
     }
 
-    return { format: FORMAT, jobs, errors }
+    const name = typeof d['name'] === 'string' ? d['name'] : undefined
+    return { format: FORMAT, name, jobs, errors }
   },
 }
