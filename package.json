@@ -1,0 +1,20 @@
+{
+  "name": "fluxo-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter @fluxo/core build && pnpm --filter @fluxo/web build && pnpm --filter fluxo build",
+    "dev": "pnpm --filter @fluxo/web dev",
+    "test": "pnpm --filter @fluxo/core test",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp"]
+  }
+}
