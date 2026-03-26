@@ -1,0 +1,51 @@
+{
+  "name": "fluxo",
+  "displayName": "fluxo — Pipeline Visualiser",
+  "description": "Instantly visualise GitHub Actions, CircleCI, and GitLab CI pipelines as an interactive diagram",
+  "version": "0.0.1",
+  "private": true,
+  "publisher": "nialleccles",
+  "categories": ["Visualization", "Other"],
+  "keywords": ["github actions", "circleci", "gitlab", "pipeline", "diagram"],
+  "engines": { "vscode": "^1.85.0" },
+  "activationEvents": ["onLanguage:yaml"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fluxo.visualize",
+        "title": "fluxo: Visualize Pipeline",
+        "icon": "$(graph)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "fluxo.visualize",
+          "when": "resourceExtname == .yml || resourceExtname == .yaml",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "dev": "node esbuild.mjs --watch",
+    "package": "vsce package",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@fluxo/core": "workspace:*",
+    "@types/dagre": "^0.7.52",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/vscode": "^1.85.0",
+    "@xyflow/react": "^12.3.6",
+    "dagre": "^0.8.5",
+    "esbuild": "^0.21.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5"
+  }
+}
